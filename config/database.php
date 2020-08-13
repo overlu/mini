@@ -24,6 +24,6 @@ return [
         ],
         'strict' => true,
         'engine' => null,
-        'size' => 64,   // 连接池数量
+        'size' => swoole_cpu_num() * 2 + 1,   // 连接池数量
     ]
 ];

@@ -12,7 +12,7 @@ return [
         'password' => env('REDIS_PASSWORD', null),
         'database' => 0,
         'time_out' => 1,
-        'size' => 64,
+        'size' => swoole_cpu_num() * 2 + 1,
     ],
     'cache' => [
         'host' => env('REDIS_HOST', 'localhost'),
@@ -20,5 +20,6 @@ return [
         'password' => env('REDIS_PASSWORD', null),
         'database' => 1,
         'time_out' => 1,
+        'size' => swoole_cpu_num() * 2 + 1,
     ]
 ];
