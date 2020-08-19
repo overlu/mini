@@ -7,19 +7,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Model\Article;
-use App\Model\Dares;
-use App\Model\User;
 use Exception;
-use Mini\Cache\Cache;
-use Mini\Database\Mysql\DB;
-use Mini\Logging\Log;
 use Mini\Contracts\HttpMessage\RequestInterface;
 use Mini\Contracts\HttpMessage\ResponseInterface;
-use Mini\Support\Coroutine;
-use Mini\Support\Filesystem;
-use Mini\Support\Json;
-use Mini\Support\Str;
 use Mini\Validator\Validator;
 
 class IndexController extends Controller
