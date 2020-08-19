@@ -44,6 +44,11 @@ return [
          * register the view service
          */
         \Mini\View\ViewServiceProvider::class,
+
+        /**
+         * register translate service
+         */
+        \Mini\Translate\TranslateServiceProvider::class
     ],
 
     /**
