@@ -5,6 +5,9 @@
  */
 declare(strict_types=1);
 
+/**
+ * database setting
+ */
 return [
     'default' => [
         'driver' => 'mysql',

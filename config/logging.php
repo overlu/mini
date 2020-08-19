@@ -4,7 +4,14 @@
  * @auth lupeng
  */
 return [
+    /**
+     * the logging default path
+     */
     'default_basepath' => runtime_path('logs'),
     'default_logger' => '.',
-    'output' => env('LOGGING_OUTPUT', false) // 输出到控制台
+
+    /**
+     * if true, will print the log on the console
+     */
+    'output' => env('LOGGING_OUTPUT', false)
 ];

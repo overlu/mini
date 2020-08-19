@@ -6,8 +6,14 @@
 declare(strict_types=1);
 
 return [
+    /**
+     * define the default cache driver
+     */
     'default' => env('CACHE_DRIVER', 'file'),
 
+    /**
+     * cache driver setting
+     */
     'drivers' => [
         'file' => [
             'path' => runtime_path('cache'),
@@ -21,6 +27,9 @@ return [
 //            'driver' => CustomSwooleCacheDriver::class
         ]
     ],
+
+    /**
+     * cache driver prefix
+     */
     'prefix' => env('CACHE_PREFIX', ''),
-    'default_expire' => 0,
 ];

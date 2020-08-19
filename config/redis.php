@@ -5,7 +5,13 @@
  */
 declare(strict_types=1);
 
+/**
+ * redis setting
+ */
 return [
+    /**
+     * default redis
+     */
     'default' => [
         'host' => env('REDIS_HOST', 'localhost'),
         'port' => env('REDIS_PORT', 6379),
@@ -14,6 +20,9 @@ return [
         'time_out' => 1,
         'size' => swoole_cpu_num() * 2 + 1,
     ],
+    /**
+     * cache redis
+     */
     'cache' => [
         'host' => env('REDIS_HOST', 'localhost'),
         'port' => env('REDIS_PORT', 6379),

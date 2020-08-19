@@ -17,15 +17,18 @@ return [
         'callbacks' => [
         ],
         'settings' => [
-            // https://wiki.swoole.com/#/server/setting
+            /**
+             * see detail
+             * @url https://wiki.swoole.com/#/server/setting
+             */
             'reactor_num' => swoole_cpu_num() * 2,
             'worker_num' => swoole_cpu_num() * 2,
             'pid_file' => runtime_path('http.server.pid'),
             'log_file' => runtime_path('logs/mini.http.log'),
             'log_level' => SWOOLE_LOG_ERROR,
-//            'max_request' => 10000,   //设置 worker 进程的最大任务数， 进程退出后会释放所有内存和资源
+//            'max_request' => 10000,   // 设置 worker 进程的最大任务数， 进程退出后会释放所有内存和资源
 //            'task_worker_num' => 2,   // 配置 Task 进程的数量。【默认值：未配置则不启动 task】
-//            'task_enable_coroutine' => true,  //开启 Task 协程支持
+//            'task_enable_coroutine' => true,  // 开启 Task 协程支持
 //            'task_use_object' => true,    // 设置为 true 时，onTask 回调将变成对象模式
 //            'buffer_output_size' => 6 * 1024 * 1024,    // 单次 Server->send 最大允许发送 6M 字节的数据，默认 2M
 //            'daemonize' => true,      // 守护进程化，使用 systemd 或者 supervisord 管理 Swoole 服务时，请勿设置 daemonize = 1

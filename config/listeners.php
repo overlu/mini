@@ -5,6 +5,9 @@
  */
 declare(strict_types=1);
 
+/**
+ * register the event
+ */
 return [
     'start' => [
         [\App\Listens\MiniServer::class, 'start'],
