@@ -15,12 +15,12 @@ namespace App\Controller;
 class Controller
 {
     /**
-     * @param array $data
      * @param string $success_message
+     * @param array $data
      * @param int $code
      * @return array
      */
-    protected function success(array $data = [], string $success_message = 'succeed', $code = 200): array
+    protected function success(string $success_message = 'succeed', array $data = [], $code = 200): array
     {
         return [
             'requestId' => \SeasLog::getRequestID(),
@@ -29,7 +29,7 @@ class Controller
                 'message' => $success_message,
                 'code' => $code,
             ],
-            'method' => request()->getMethod(),
+            'method' => \request()->getMethod(),
             'data' => $data
         ];
     }
@@ -48,13 +48,13 @@ class Controller
                 'message' => $error_message,
                 'code' => $code,
             ],
-            'method' => request()->getMethod(),
+            'method' => \request()->getMethod(),
             'data' => []
         ];
     }
 
     public function __call($name, $arguments)
     {
-        return response()->$name(...$arguments);
+        return \response()->$name(...$arguments);
     }
 }

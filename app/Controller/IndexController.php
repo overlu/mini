@@ -30,7 +30,7 @@ EOL;
 
     public function index(): array
     {
-        return $this->success([], 'Hello Mini. 🙂');
+        return $this->success('Hello Mini. 🙂');
     }
 
     /**
