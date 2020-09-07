@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Model;
+namespace App\Models;
 
 use Mini\Database\Mysql\Eloquent as Model;
 

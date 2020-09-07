@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controllers;
 
 use Exception;
 use Mini\Contracts\HttpMessage\RequestInterface;

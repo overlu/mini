@@ -7,7 +7,7 @@
 namespace App\Observers;
 
 
-use App\Model\User;
+use App\Models\User;
 
 class Test
 {
