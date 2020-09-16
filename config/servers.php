@@ -66,9 +66,25 @@ return [
         ],
         'mode' => SWOOLE_PROCESS,
     ],
-    'mqtt' => [
+    /*'tcp' => [
         'ip' => '0.0.0.0',
         'port' => 9503,
+        'sock_type' => SWOOLE_SOCK_TCP,
+        'callbacks' => [
+            "receive" => function($server, $data){
+            },
+        ],
+        'settings' => [
+            'worker_num' => swoole_cpu_num(),
+            'pid_file' => runtime_path('tcp.server.pid'),
+            'log_file' => runtime_path('logs/mini.tcp.log'),
+            'log_level' => SWOOLE_LOG_ERROR,
+        ],
+        'mode' => SWOOLE_PROCESS,
+    ],*/
+    /*'mqtt' => [
+        'ip' => '0.0.0.0',
+        'port' => 9504,
         'callbacks' => [
         ],
         'receiveCallbacks' => [
@@ -87,5 +103,5 @@ return [
             'log_level' => SWOOLE_LOG_ERROR,
         ],
         'mode' => SWOOLE_PROCESS,
-    ],
+    ],*/
 ];
