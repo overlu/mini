@@ -11,6 +11,10 @@ return [
      */
     'providers' => [
         /**
+         * register app service
+         */
+        \App\Providers\AppServiceProvider::class,
+        /**
          * register the file system service
          */
         \Mini\Support\FilesystemServiceProvider::class,
