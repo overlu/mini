@@ -11,6 +11,7 @@ use Exception;
 use Mini\Contracts\HttpMessage\RequestInterface;
 use Mini\Contracts\HttpMessage\ResponseInterface;
 use Mini\Validator\Validator;
+use Swoole\WebSocket\Server;
 
 class IndexController extends Controller
 {
@@ -31,6 +32,11 @@ EOL;
     public function index(): array
     {
         return $this->success('Hello Mini. 🙂');
+    }
+
+    public function message(Server $server, $frame)
+    {
+        $server->push($frame->fd, 'this is server');
     }
 
     /**
