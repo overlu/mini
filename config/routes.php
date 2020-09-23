@@ -13,6 +13,6 @@ return [
         ],
     ],
     'ws' => [
-        ['message', 'IndexController@index'],
+        ['message', 'IndexController@message'],
     ]
 ];
