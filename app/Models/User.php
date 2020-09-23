@@ -13,6 +13,6 @@ use Mini\Database\Mysql\Eloquent as Model;
 
 class User extends Model
 {
-    protected $guarded = [];
-    protected $table = 'users';
+    protected array $guarded = [];
+    protected string $table = 'users';
 }
