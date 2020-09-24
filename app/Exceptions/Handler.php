@@ -11,6 +11,7 @@ use \Mini\Exceptions\Handler as MiniHandler;
 
 class Handler extends MiniHandler
 {
+    protected array $dontReport = [];
 
     public function report(\Throwable $throwable): void
     {
