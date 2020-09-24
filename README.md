@@ -9,4 +9,4 @@ php bin/mini start
 ```
 
 ### More
-...
+[View Wiki](https://github.com/overlu/mini/wiki)
