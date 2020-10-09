@@ -12,4 +12,5 @@ return [
     \Mini\Command\HelloMiniCommandService::class,
     \Mini\Command\RouteCommandService::class,
     \Mini\Command\TestCommandService::class,
+    \Mini\Command\LogStatusCommandService::class,
 ];
