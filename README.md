@@ -30,6 +30,7 @@ php bin/mini start
 [View Wiki](https://github.com/overlu/mini/wiki)
 
 ### Performance Testing
+__2CPU/2G__
 ```bash
 ➜  ab -n 5000 -c 10 http://127.0.0.1:9501/
 This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
