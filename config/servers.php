@@ -18,7 +18,6 @@ return [
         ],
         'settings' => [
             /**
-             * see detail
              * @url https://wiki.swoole.com/#/server/setting
              */
             'reactor_num' => swoole_cpu_num() * 2,
@@ -39,11 +38,11 @@ return [
 //            'ssl_key_file' => BASE_PATH.'/storage/app/ssl.key',
             /******http config******/
             'upload_tmp_dir' => runtime_path('tmp'),
-            'enable_static_handler' => true,
-            'http_autoindex' => true,
-            'document_root' => BASE_PATH,
-            'http_index_files' => ['index.html', 'index.txt'],
-            "static_handler_locations" => ['/public'],
+//            'enable_static_handler' => true,
+//            'http_autoindex' => true,
+//            'document_root' => BASE_PATH,
+//            'http_index_files' => ['index.html', 'index.txt'],
+//            "static_handler_locations" => ['/public'],
             'open_http2_protocol' => true,
         ],
         'mode' => SWOOLE_PROCESS,
@@ -66,9 +65,27 @@ return [
         ],
         'mode' => SWOOLE_PROCESS,
     ],
-    /*'tcp' => [
+    'wshttp' => [
         'ip' => '0.0.0.0',
         'port' => 9503,
+        'sock_type' => SWOOLE_SOCK_TCP,
+        'callbacks' => [
+            "open" => [WebSocket::class, 'onOpen'],
+            "message" => [WebSocket::class, 'onMessage'],
+            "close" => [WebSocket::class, 'onClose'],
+        ],
+        'settings' => [
+            'worker_num' => swoole_cpu_num(),
+            'open_websocket_protocol' => true,
+            'pid_file' => runtime_path('ws.server.pid'),
+            'log_file' => runtime_path('logs/mini.ws.log'),
+            'log_level' => SWOOLE_LOG_ERROR,
+        ],
+        'mode' => SWOOLE_PROCESS,
+    ],
+    /*'tcp' => [
+        'ip' => '0.0.0.0',
+        'port' => 9504,
         'sock_type' => SWOOLE_SOCK_TCP,
         'callbacks' => [
             "receive" => function($server, $data){
@@ -84,7 +101,7 @@ return [
     ],*/
     /*'mqtt' => [
         'ip' => '0.0.0.0',
-        'port' => 9504,
+        'port' => 9505,
         'callbacks' => [
         ],
         'receiveCallbacks' => [

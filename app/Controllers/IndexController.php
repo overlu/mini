@@ -34,9 +34,9 @@ EOL;
         return $this->success('Hello Mini. 🙂');
     }
 
-    public function message(Server $server, $frame)
+    public function message($data, $frame)
     {
-        $server->push($frame->fd, 'this is server');
+        return 'this is server' . json_encode((array)$data).$frame->data;
     }
 
     /**
