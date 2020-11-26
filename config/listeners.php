@@ -5,17 +5,30 @@
  */
 declare(strict_types=1);
 
+use App\Listens\MiniServer;
+
 /**
  * register the event
  */
 return [
-    'start' => [
-        [\App\Listens\MiniServer::class, 'start'],
+    'server' => [
+        'start' => [
+            MiniServer::class,
+            'start'
+        ],
+        'managerStart' => [
+            MiniServer::class,
+            'start'
+        ],
+        'workerStart' => [
+            MiniServer::class,
+            'workerStart'
+        ],
     ],
-    'managerStart' => [
-        [\App\Listens\MiniServer::class, 'start'],
-    ],
-    'workerStart' => [
-        [\App\Listens\MiniServer::class, 'workerStart'],
-    ],
+    'events' => [
+        \App\Events\TestEvent::class => \App\Listens\TestListener::class,
+        'test' => function () {
+            dump('test');
+        },
+    ]
 ];
