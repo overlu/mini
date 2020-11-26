@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-use App\Listens\MiniServer;
+use App\Listeners\MiniServer;
 
 /**
  * register the event
@@ -26,9 +26,9 @@ return [
         ],
     ],
     'events' => [
-        \App\Events\TestEvent::class => \App\Listens\TestListener::class,
+        /*\App\Events\TestEvent::class => \App\Listeners\TestListener::class,
         'test' => function () {
             dump('test');
-        },
+        },*/
     ]
 ];

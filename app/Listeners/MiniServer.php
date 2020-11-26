@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Listens;
+namespace App\Listeners;
 
 use Mini\Singleton;
 use Swoole\Server;
