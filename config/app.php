@@ -14,7 +14,7 @@ return [
          * Mini Framework Service Providers...
          */
         \Mini\Exceptions\ExceptionServiceProvider::class,
-        \Mini\Support\FilesystemServiceProvider::class,
+        \Mini\Filesystem\FilesystemServiceProvider::class,
         \Mini\Events\EventServiceProvider::class,
         \Mini\Database\Mysql\OrmServiceProvider::class,
         \Mini\Database\Mini\DbServiceProvider::class,
