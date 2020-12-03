@@ -10,7 +10,9 @@ return [
      * boot: after the provider register, it can use other service provider
      */
     'providers' => [
-        \App\Providers\AppServiceProvider::class,
+        /**
+         * Mini Framework Service Providers...
+         */
         \Mini\Exceptions\ExceptionServiceProvider::class,
         \Mini\Support\FilesystemServiceProvider::class,
         \Mini\Events\EventServiceProvider::class,
@@ -19,7 +21,13 @@ return [
         \Mini\Logging\LoggingServiceProvider::class,
         \Mini\Database\Redis\RedisServiceProvider::class,
         \Mini\View\ViewServiceProvider::class,
-        \Mini\Translate\TranslateServiceProvider::class
+        \Mini\Translate\TranslateServiceProvider::class,
+
+        /**
+         * Application Service Providers...
+         */
+        \App\Providers\AppServiceProvider::class,
+
     ],
 
     /**
