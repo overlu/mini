@@ -4,6 +4,7 @@
  * This file is part of Mini.
  * @auth lupeng
  */
+declare(strict_types=1);
 
 !defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
 !defined('RUN_ENV') && define('RUN_ENV', 'mini');

@@ -4,6 +4,8 @@
  * This file is part of Mini.
  * @auth lupeng
  */
+declare(strict_types=1);
+
 ini_set('display_errors', 'on');
 ini_set('display_startup_errors', 'on');
 
