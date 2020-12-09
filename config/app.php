@@ -24,6 +24,7 @@ return [
         \Mini\Database\Redis\RedisServiceProvider::class,
         \Mini\View\ViewServiceProvider::class,
         \Mini\Translate\TranslateServiceProvider::class,
+        \Mini\Validator\ValidationServiceProvider::class,
 
         /**
          * Application Service Providers...

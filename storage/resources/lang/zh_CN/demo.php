@@ -6,5 +6,5 @@
 declare(strict_types=1);
 
 return [
-    'demo' => '这个是样例'
+    'demo' => '这个是样例。'
 ];

@@ -36,5 +36,5 @@ return [
     /**
      * default translate language
      */
-    'language' => 'zh',
+    'language' => 'zh_CN',
 ];
