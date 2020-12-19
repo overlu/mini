@@ -46,8 +46,7 @@ EOL;
      */
     public function validate(RequestInterface $request)
     {
-        $validate = new Validator();
-        $validation = $validate->validate($request->all(), [
+        $validation = Validator::validate($request->all(), [
             'name' => 'required|min:6'
         ]);
         if ($validation->fails()) {

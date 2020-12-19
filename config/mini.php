@@ -29,6 +29,11 @@ return [
     'debug' => env('APP_DEBUG', false),
 
     /**
+     * @var 'dark', 'light'
+     */
+    'debug_theme' => 'dark',
+
+    /**
      * enable route cache
      */
     'route_cached' => env('ROUTE_CACHED', false),
