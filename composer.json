@@ -39,7 +39,7 @@
     "prefer-stable": true,
     "scripts": {
         "post-root-package-install": [
-            "\\Mini\\PackageScript::postRootPackageInstall"
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-autoload-dump": [
             "\\Mini\\PackageScript::postAutoloadDump"
