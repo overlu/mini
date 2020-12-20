@@ -39,7 +39,8 @@
     "prefer-stable": true,
     "scripts": {
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php -r \"file_exists('vendor/laravel') || mkdir('vendor/laravel','0644',true);\""
         ]
     }
 }
