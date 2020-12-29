@@ -28,10 +28,10 @@ class Request
     public static function post(string $url, $data = [], array $headers = [])
     {
         $scheme = parse_url($url);
-        $client = new Client($scheme['host'], $scheme['port'] ?? 80);
+        $client = new Client($scheme['host'], $scheme['port'] ?? 80, ($scheme['scheme'] ?? '') === 'https');
         $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
-        $client->post($scheme['path'], $data);
+        $client->post($scheme['path'] ?? '/', $data);
         $content = $client->getBody();
         $client->close();
         return is_json($content) ? json_decode($content, true) : $content;
@@ -47,11 +47,11 @@ class Request
     public static function get(string $url, array $data = [], array $headers = [])
     {
         $scheme = parse_url($url);
-        $client = new Client($scheme['host'], $scheme['port'] ?? 80);
+        $client = new Client($scheme['host'], $scheme['port'] ?? 80, ($scheme['scheme'] ?? '') === 'https');
         $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
         $client->setData($data);
-        $client->get($scheme['path']);
+        $client->get($scheme['path'] ?? '/');
         $content = $client->getBody();
         $client->close();
         return is_json($content) ? json_decode($content, true) : $content;
@@ -66,9 +66,9 @@ class Request
     public static function download(string $url, string $saveFile)
     {
         $scheme = parse_url($url);
-        $client = new Client($scheme['host'], $scheme['port'] ?? 80);
+        $client = new Client($scheme['host'], $scheme['port'] ?? 80, ($scheme['scheme'] ?? '') === 'https');
         $client->set(['timeout' => -1]);
-        $result = $client->download($scheme['path'], $saveFile);
+        $result = $client->download($scheme['path'] ?? '/', $saveFile);
         $client->close();
         return $result;
     }
@@ -93,12 +93,12 @@ class Request
     private static function execute(string $method, string $url, array $data = [], array $headers = [])
     {
         $scheme = parse_url($url);
-        $client = new Client($scheme['host'], $scheme['port'] ?? 80);
+        $client = new Client($scheme['host'], $scheme['port'] ?? 80, ($scheme['scheme'] ?? '') === 'https');
         $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
         $client->setData($data);
         $client->setMethod(strtoupper($method));
-        $client->execute($scheme['path']);
+        $client->execute($scheme['path'] ?? '/');
         $content = $client->getBody();
         $client->close();
         return is_json($content) ? json_decode($content, true) : $content;
