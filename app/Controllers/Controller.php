@@ -20,7 +20,7 @@ class Controller
      * @param int $code
      * @return array
      */
-    protected function success(string $success_message = 'succeed', array $data = [], $code = 200): array
+    protected function success(?string $success_message = 'succeed', array $data = [], $code = 200): array
     {
         return [
             'requestId' => \SeasLog::getRequestID(),
