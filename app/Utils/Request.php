@@ -50,8 +50,9 @@ class Request
         $client = new Client($scheme['host'], $scheme['port'] ?? 80, ($scheme['scheme'] ?? '') === 'https');
         $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
-        $client->setData($data);
-        $client->get($scheme['path'] ?? '/');
+//        $client->setData($data);
+//        $client->get($scheme['path'] ?? '/');
+        $client->get(($scheme['path'] ?? '/') . '?' . http_build_query($data));
         $content = $client->getBody();
         $client->close();
         return is_json($content) ? json_decode($content, true) : $content;
