@@ -3,3 +3,4 @@ vendor
 .idea
 .env
 storage/runtime/*.pid
+storage/runtime/cache
