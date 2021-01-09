@@ -17,6 +17,6 @@ error_reporting(E_ALL);
 
 require BASE_PATH . '/vendor/autoload.php';
 
-\Swoole\Runtime::enableCoroutine(SWOOLE_HOOK_ALL);
+//\Swoole\Runtime::enableCoroutine(SWOOLE_HOOK_ALL);
 
 \Mini\Console::run();
