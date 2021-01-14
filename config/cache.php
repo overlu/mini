@@ -24,6 +24,7 @@ return [
 //            'driver' => CustomRedisCacheDriver::class
         ],
         'swoole' => [
+            'size' => 4096,
 //            'driver' => CustomSwooleCacheDriver::class
         ]
     ],
