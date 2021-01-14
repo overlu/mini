@@ -3,6 +3,9 @@
  * This file is part of Mini.
  * @auth lupeng
  */
+
+use Swoole\Table;
+
 declare(strict_types=1);
 
 return [
@@ -24,7 +27,23 @@ return [
 //            'driver' => CustomRedisCacheDriver::class
         ],
         'swoole' => [
-            'size' => 4096,
+            /**
+             * @see https://wiki.swoole.com/#/memory/table?id=__construct
+             */
+            'table' => [
+                'size' => 4096,
+                'conflict_proportion' => 0.2
+            ],
+            'column' => [
+                'value' => [
+                    'size' => 4096,
+                    'type' => Table::TYPE_STRING
+                ],
+                'expire' => [
+                    'size' => 4,
+                    'type' => Table::TYPE_INT
+                ]
+            ]
 //            'driver' => CustomSwooleCacheDriver::class
         ]
     ],
