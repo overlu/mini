@@ -26,5 +26,7 @@ return [
      * crontab task list
      * \Mini\Crontab\CrontabTaskInterface[]
      */
-    'crontab_task_list' => []
+    'crontab_task_list' => [
+//        \App\Crontabs\DemoCrontabTask::class
+    ]
 ];
