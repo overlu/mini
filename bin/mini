@@ -6,12 +6,15 @@
  */
 declare(strict_types=1);
 
+use Mini\Application;
+use Swoole\Runtime;
+
 !defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
 !defined('RUN_ENV') && define('RUN_ENV', 'mini');
 !defined('CONFIG_PATH') && define('CONFIG_PATH', dirname(__DIR__) . '/config/');
 
 require BASE_PATH . '/vendor/autoload.php';
 
-\Swoole\Runtime::enableCoroutine(SWOOLE_HOOK_ALL);
+Runtime::enableCoroutine(SWOOLE_HOOK_ALL);
 
-\Mini\Application::run();
+Application::run();
