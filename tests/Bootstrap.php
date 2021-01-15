@@ -10,7 +10,7 @@ trait Bootstrap
         ini_set('display_startup_errors', 'on');
 
         error_reporting(E_ALL);
-
+        !defined('RUN_ENV') && define('RUN_ENV', 'testing');
         !defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
         !defined('CONFIG_PATH') && define('CONFIG_PATH', dirname(__DIR__) . '/config/');
 

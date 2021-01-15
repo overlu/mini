@@ -7,6 +7,64 @@ declare(strict_types=1);
 
 return [
     /**
+     * the default framework env
+     * local, dev, production
+     */
+    'env' => env('APP_ENV', 'local'),
+
+    /**
+     * default timezone
+     */
+    'timezone' => 'Asia/Shanghai',
+
+    /**
+     * enable auto reload
+     * if in production environment, should be false
+     */
+    'hot_reload' => true,
+
+    /**
+     * enable debug model, if true, will show debug info
+     */
+    'debug' => env('APP_DEBUG', false),
+
+    /**
+     * @var 'dark', 'light'
+     */
+    'debug_theme' => 'dark',
+
+    /**
+     * enable route cache
+     */
+    'route_cached' => env('ROUTE_CACHED', false),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Locale Configuration
+    |--------------------------------------------------------------------------
+    |
+    | The application locale determines the default locale that will be used
+    | by the translation service provider. You are free to set this value
+    | to any of the locales which will be supported by the application.
+    |
+    */
+
+    'locale' => 'en',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Fallback Locale
+    |--------------------------------------------------------------------------
+    |
+    | The fallback locale determines the locale to use when the current one
+    | is not available. You may change the value to correspond to any of
+    | the language folders that are provided through your application.
+    |
+    */
+
+    'fallback_locale' => 'en',
+
+    /**
      * register the provider when framework server start
      * register: before the framework initialize done, it can't use other service provider
      * boot: after the provider register, it can use other service provider
