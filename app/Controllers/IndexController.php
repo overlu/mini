@@ -9,9 +9,7 @@ namespace App\Controllers;
 
 use Exception;
 use Mini\Contracts\HttpMessage\RequestInterface;
-use Mini\Contracts\HttpMessage\ResponseInterface;
-use Mini\Validator\Validator;
-use Swoole\WebSocket\Server;
+use Mini\Facades\Validator;
 
 class IndexController extends Controller
 {
@@ -29,14 +27,19 @@ EOL;
         return view('welcome', ['value' => $info]);
     }
 
-    public function index(): array
+    public function index()
     {
         return $this->success('Hello Mini. 🙂');
     }
 
+    /**
+     * @param $data
+     * @param $frame
+     * @return string
+     */
     public function message($data, $frame)
     {
-        return 'this is server' . json_encode((array)$data).$frame->data;
+        return 'this is server' . json_encode((array)$data, JSON_UNESCAPED_UNICODE) . $frame->data;
     }
 
     /**

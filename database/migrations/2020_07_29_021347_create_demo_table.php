@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 use Mini\Database\Mysql\Migrations\Migration;
 use Mini\Database\Mysql\Schema\Blueprint;
-use Mini\Database\Mysql\Capsule\Manager;
+use Mini\Facades\Schema;
 
 class CreateDemoTable extends Migration
 {
@@ -18,7 +18,7 @@ class CreateDemoTable extends Migration
      */
     public function up(): void
     {
-        Manager::schema()->create('demo', static function (Blueprint $table) {
+        Schema::create('demo', static function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateDemoTable extends Migration
      */
     public function down(): void
     {
-        Manager::schema()->dropIfExists('demo');
+        Schema::dropIfExists('demo');
     }
 }

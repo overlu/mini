@@ -83,6 +83,8 @@ return [
         \Mini\View\ViewServiceProvider::class,
         \Mini\Translate\TranslateServiceProvider::class,
         \Mini\Validator\ValidationServiceProvider::class,
+        \Mini\Hashing\HashServiceProvider::class,
+
 
         /**
          * Application Service Providers...
