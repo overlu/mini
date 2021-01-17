@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Exception;
+use Mini\Contracts\HttpMessage\ControllerInterface;
 use Mini\Service\HttpMessage\Server\Response;
 use function response;
 
@@ -16,18 +17,17 @@ use function response;
  * @package App\Controller
  * @mixin \Mini\Service\HttpServer\Response | Response
  */
-class Controller
+class Controller implements ControllerInterface
 {
     /**
      * @param string|null $success_message
      * @param array $data
-     * @param int $code
      * @return array
      */
-    protected function success(?string $success_message = 'succeed', array $data = [], $code = 200): array
+    public function success(?string $success_message = 'succeed', array $data = []): array
     {
         return [
-            'code' => $code,
+            'code' => 200,
             'message' => $success_message,
             'data' => $data
         ];
@@ -38,12 +38,32 @@ class Controller
      * @param int $code
      * @return array
      */
-    protected function failed(?string $error_message = 'failed', $code = 0): array
+    public function failed(?string $error_message = 'failed', $code = 0): array
     {
         return [
             'code' => $code,
             'message' => $error_message,
         ];
+    }
+
+    /**
+     * run before dispatch method
+     * @param $method
+     * @return mixed
+     */
+    public function beforeDispatch($method)
+    {
+        return null;
+    }
+
+    /**
+     * run after dispatch method
+     * @param $response
+     * @return mixed
+     */
+    public function afterDispatch($response)
+    {
+        return $response;
     }
 
     /**

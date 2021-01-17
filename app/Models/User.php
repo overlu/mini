@@ -9,8 +9,10 @@ namespace App\Models;
 
 use Mini\Database\Mysql\Eloquent as Model;
 
-//use Mini\Database\Mysql\Model;
-
+/**
+ * Class User
+ * @package App\Models
+ */
 class User extends Model
 {
     protected array $guarded = [];

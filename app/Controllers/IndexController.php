@@ -27,7 +27,7 @@ EOL;
         return view('welcome', ['value' => $info]);
     }
 
-    public function index()
+    public function index(): array
     {
         return $this->success('Hello Mini. 🙂');
     }
@@ -37,7 +37,7 @@ EOL;
      * @param $frame
      * @return string
      */
-    public function message($data, $frame)
+    public function message($data, $frame): string
     {
         return 'this is server' . json_encode((array)$data, JSON_UNESCAPED_UNICODE) . $frame->data;
     }

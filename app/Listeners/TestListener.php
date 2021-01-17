@@ -9,10 +9,8 @@ namespace App\Listeners;
 
 class TestListener
 {
-    public function handle()
+    public function handle(): void
     {
-        dump('test start');
-        sleep(3);
-        dump('test end');
+        echo 'test event';
     }
 }

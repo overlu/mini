@@ -9,7 +9,7 @@ namespace App\Observers;
 
 use App\Models\User;
 
-class Test
+class DemoProvider
 {
     public function created(User $user)
     {

@@ -28,7 +28,7 @@ class Request
      */
     public static function post(string $url, $data = [], array $headers = [])
     {
-        $scheme = self::praseUrl($url);
+        $scheme = self::parseUrl($url);
         $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
         $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
@@ -47,7 +47,7 @@ class Request
      */
     public static function get(string $url, array $data = [], array $headers = [])
     {
-        $scheme = self::praseUrl($url);
+        $scheme = self::parseUrl($url);
         $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
         $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
@@ -65,7 +65,7 @@ class Request
      */
     public static function download(string $url, string $saveFile)
     {
-        $scheme = self::praseUrl($url);
+        $scheme = self::parseUrl($url);
         $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
         $client->set(['timeout' => -1]);
         $result = $client->download($scheme['path'] ?? '/', $saveFile);
@@ -93,7 +93,7 @@ class Request
      */
     public static function execute(string $method, string $url, array $data = [], array $headers = [], array $cookies = [])
     {
-        $scheme = self::praseUrl($url);
+        $scheme = self::parseUrl($url);
         $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
         $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
@@ -110,7 +110,7 @@ class Request
      * @param string $url
      * @return array|false|int|string|null
      */
-    public static function praseUrl(string $url)
+    public static function parseUrl(string $url)
     {
         $scheme = parse_url($url);
         if (!isset($scheme['host'])) {

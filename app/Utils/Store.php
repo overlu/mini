@@ -69,6 +69,6 @@ class Store
             unset($values[$index]);
             return Cache::set($key, $values);
         }
-        return true;
+        return false;
     }
 }

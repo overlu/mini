@@ -13,7 +13,7 @@ use Mini\Crontab\CrontabTaskInterface;
 class DemoCrontabTask implements CrontabTaskInterface
 {
 
-    public function handle()
+    public function handle(): void
     {
         echo "demo\n";
     }
