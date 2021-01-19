@@ -10,7 +10,7 @@ return [
      * Default Session Driver
      * support: redis, file, null
      */
-    'driver' => env('SESSION_DRIVER', 'file'),
+    'driver' => env('SESSION_DRIVER', null),
 
     /**
      * Session Lifetime
