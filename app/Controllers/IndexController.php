@@ -15,16 +15,7 @@ class IndexController extends Controller
 {
     public function welcome()
     {
-        $info = <<<EOL
-<pre>
- _   _ _____ _     _     ___       __  __ ___ _   _ ___ 
-| | | | ____| |   | |   / _ \     |  \/  |_ _| \ | |_ _|
-| |_| |  _| | |   | |  | | | |    | |\/| || ||  \| || | 
-|  _  | |___| |___| |__| |_| |    | |  | || || |\  || | 
-|_| |_|_____|_____|_____\___/     |_|  |_|___|_| \_|___|
-</pre>
-EOL;
-        return view('welcome', ['value' => $info]);
+        return view('welcome', ['value' => 'Hello Mini.']);
     }
 
     public function index(): array
@@ -39,7 +30,7 @@ EOL;
      */
     public function message($data, $frame): string
     {
-        return 'this is server' . json_encode((array)$data, JSON_UNESCAPED_UNICODE) . $frame->data;
+        return 'This is server' . json_encode((array)$data, JSON_UNESCAPED_UNICODE) . $frame->data;
     }
 
     /**

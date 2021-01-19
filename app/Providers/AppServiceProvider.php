@@ -13,7 +13,11 @@ use Swoole\Server;
 class AppServiceProvider implements ServiceProviderInterface
 {
 
-    public function register(?Server $server, ?int $workerId): void
+    /**
+     * @param Server|null $server
+     * @param int|null $workerId
+     */
+    public function register(?Server $server = null, ?int $workerId = null): void
     {
         /*app()->bind(
             \Mini\Pagination\LengthAwarePaginator::class,
@@ -23,8 +27,12 @@ class AppServiceProvider implements ServiceProviderInterface
         );*/
     }
 
-    public function boot(?Server $server, ?int $workerId): void
+    /**
+     * @param Server|null $server
+     * @param int|null $workerId
+     */
+    public function boot(?Server $server = null, ?int $workerId = null): void
     {
-
+        //
     }
 }

@@ -6,6 +6,7 @@
 declare(strict_types=1);
 
 return [
+    'name' => env('APP_NAME', 'Mini'),
     /**
      * the default framework env
      * local, dev, production
@@ -76,14 +77,15 @@ return [
         \Mini\Exceptions\ExceptionServiceProvider::class,
         \Mini\Filesystem\FilesystemServiceProvider::class,
         \Mini\Events\EventServiceProvider::class,
-        \Mini\Database\Mysql\OrmServiceProvider::class,
-        \Mini\Database\Mini\DbServiceProvider::class,
         \Mini\Logging\LoggingServiceProvider::class,
+        \Mini\Database\Mysql\EloquentServiceProvider::class,
+        \Mini\Database\Mini\MiniDBServiceProvider::class,
         \Mini\Database\Redis\RedisServiceProvider::class,
-        \Mini\View\ViewServiceProvider::class,
         \Mini\Translate\TranslateServiceProvider::class,
         \Mini\Validator\ValidationServiceProvider::class,
+        \Mini\Session\SessionServiceProvider::class,
         \Mini\Hashing\HashServiceProvider::class,
+        \Mini\View\ViewServiceProvider::class,
 
 
         /**
@@ -94,12 +96,11 @@ return [
     ],
 
     /**
-     * register the request provider when the framework on request
-     * before: before on request
-     * after: after request
+     * register the middleware
      */
-    'requests' => [
-        \Mini\Logging\LoggingRequestProvider::class
+    'middleware' => [
+        \Mini\Logging\RequestIdMiddleware::class,
+        \Mini\Session\SessionMiddleware::class,
     ],
 
     /**
