@@ -100,7 +100,7 @@ return [
      */
     'middleware' => [
         \Mini\Logging\RequestIdMiddleware::class,
-        \Mini\Session\SessionMiddleware::class,
+//        \Mini\Session\SessionMiddleware::class,
     ],
 
     /**
