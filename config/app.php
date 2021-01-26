@@ -77,6 +77,7 @@ return [
         \Mini\Exceptions\ExceptionServiceProvider::class,
         \Mini\Filesystem\FilesystemServiceProvider::class,
         \Mini\Events\EventServiceProvider::class,
+        \Mini\Cache\CacheServiceProviders::class,
         \Mini\Logging\LoggingServiceProvider::class,
         \Mini\Database\Mysql\EloquentServiceProvider::class,
         \Mini\Database\Mini\MiniDBServiceProvider::class,
