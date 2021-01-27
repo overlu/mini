@@ -20,7 +20,7 @@ return [
     '206' => 'Partial Content',
     '207' => 'Multi - Status',
     '208' => 'Already Reported',
-    '226 IM Used',
+    '226' => 'IM Used',
     //3×× Redirection
     '300' => 'Multiple Choices',
     '301' => 'Moved Permanently',
@@ -33,7 +33,6 @@ return [
     //4×× Client Error
     '400' => 'Bad Request',
     '401' => 'Unauthorized',
-    '402' => 'Payment Required',
     '403' => 'Forbidden',
     '404' => 'Not Found',
     '405' => 'Method Not Allowed',
@@ -49,7 +48,6 @@ return [
     '415' => 'Unsupported Media Type',
     '416' => 'Requested Range Not Satisfiable',
     '417' => 'Expectation Failed',
-    '418' => 'I\'m a teapot',
     '421' => 'Misdirected Request',
     '422' => 'Unprocessable Entity',
     '423' => 'Locked',
@@ -73,5 +71,5 @@ return [
     '508' => 'Loop Detected',
     '510' => 'Not Extended',
     '511' => 'Network Authentication Required',
-    '599' => 'Network Connect Timeout Error  ',
+    '599' => 'Network Connect Timeout Error',
 ];

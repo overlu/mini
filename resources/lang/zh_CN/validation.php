@@ -6,17 +6,6 @@
 declare(strict_types=1);
 
 return [
-    /*
-    |--------------------------------------------------------------------------
-    | Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
-    |
-    */
-
     'accepted' => '您必须接受 :attribute。',
     'active_url' => ':attribute 不是一个有效的网址。',
     'after' => ':attribute 必须要晚于 :date。',
@@ -94,7 +83,7 @@ return [
         'string' => ':attribute 至少为 :min 个字符。',
         'array' => ':attribute 至少有 :min 个单元。',
     ],
-    'multiple_of' => 'The :attribute must be a multiple of :value',
+    'multiple_of' => ':attribute 必须是 :value 中的多个值。',
     'not_in' => '已选的属性 :attribute 非法。',
     'not_regex' => ':attribute 的格式错误。',
     'numeric' => ':attribute 必须是一个数字。',
