@@ -6,6 +6,9 @@
 declare(strict_types=1);
 
 return [
+    /**
+     * http server route
+     */
     'http' => [
         ['ANY', '/', 'IndexController@index'],
         ['GET', '/welcome', 'IndexController@welcome'],
@@ -13,7 +16,17 @@ return [
             ['GET', '/index', 'IndexController@index']
         ],
     ],
+
+    /**
+     * websocket server route
+     */
     'ws' => [
         ['message/{id}', 'IndexController@message'],
-    ]
+    ],
+
+    /**
+     * if not found, will be here
+     * support `callable` or `controllerClass@method`
+     */
+//    'default' => 'IndexController@index',
 ];
