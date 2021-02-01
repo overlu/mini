@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace App\Exceptions;
 
 use Mini\Contracts\HttpMessage\RequestInterface;
-use \Mini\Exceptions\Handler as MiniHandler;
+use \Mini\Exception\Handler as MiniHandler;
 use Throwable;
 
 class Handler extends MiniHandler

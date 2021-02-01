@@ -74,7 +74,7 @@ return [
         /**
          * Mini Framework Service Providers...
          */
-        \Mini\Exceptions\ExceptionServiceProvider::class,
+        \Mini\Exception\ExceptionServiceProvider::class,
         \Mini\Filesystem\FilesystemServiceProvider::class,
         \Mini\Events\EventServiceProvider::class,
         \Mini\Cache\CacheServiceProviders::class,
