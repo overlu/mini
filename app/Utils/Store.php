@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace App\Utils;
 
-use Mini\Cache\Cache;
+use Mini\Facades\Cache;
 
 class Store
 {
