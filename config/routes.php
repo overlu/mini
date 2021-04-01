@@ -12,9 +12,10 @@ return [
     'http' => [
         ['ANY', '/', 'IndexController@index'],
         ['GET', '/welcome', 'IndexController@welcome'],
-        'group' => [
+
+        /*'group' => [
             ['GET', '/index', 'IndexController@index']
-        ],
+        ],*/
     ],
 
     /**
@@ -25,7 +26,7 @@ return [
     ],
 
     /**
-     * if not found, will be here
+     * if http route not found, will be here
      * support `callable` or `controllerClass@method`
      */
 //    'default' => 'IndexController@index',

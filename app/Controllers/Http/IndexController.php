@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Controllers;
+namespace App\Controllers\Http;
 
 use Exception;
 use Mini\Contracts\HttpMessage\RequestInterface;
@@ -21,16 +21,6 @@ class IndexController extends Controller
     public function index(): array
     {
         return $this->success('Hello Mini. 🙂');
-    }
-
-    /**
-     * @param $data
-     * @param $frame
-     * @return string
-     */
-    public function message($data, $frame): string
-    {
-        return 'This is server' . json_encode((array)$data, JSON_UNESCAPED_UNICODE) . $frame->data;
     }
 
     /**

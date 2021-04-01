@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Controllers;
+namespace App\Controllers\Http;
 
 use Mini\Contracts\HttpMessage\ControllerInterface;
 

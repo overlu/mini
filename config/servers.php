@@ -75,11 +75,17 @@ return [
             "close" => [WebSocket::class, 'onClose'],
         ],
         'settings' => [
-            'worker_num' => swoole_cpu_num(),
+            'reactor_num' => swoole_cpu_num() * 2,
+            'worker_num' => swoole_cpu_num() * 2,
             'open_websocket_protocol' => true,
             'pid_file' => runtime_path('wshttp.server.pid'),
             'log_file' => runtime_path('logs/mini.wshttp.log'),
             'log_level' => SWOOLE_LOG_ERROR,
+            'task_worker_num' => swoole_cpu_num(),   // 配置 Task 进程的数量。【默认值：未配置则不启动 task】
+            'task_enable_coroutine' => true,  // 开启 Task 协程支持
+            'task_use_object' => true,    // 设置为 true 时，onTask 回调将变成对象模式
+            'upload_tmp_dir' => runtime_path('tmp'),
+            'open_http2_protocol' => true,
         ],
         'mode' => SWOOLE_PROCESS,
     ],
