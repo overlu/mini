@@ -18,6 +18,6 @@ class IndexController extends Controller
      */
     public function message(Frame $frame, $routeData): string
     {
-        return 'This is mini server, routeData: ' . json_encode((array)$routeData, JSON_UNESCAPED_UNICODE) . 'message: ' . $frame->data;
+        return 'This is mini server, routeData: ' . json_encode((array)$routeData, JSON_UNESCAPED_UNICODE) . ', message: ' . $frame->data;
     }
 }
