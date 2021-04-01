@@ -77,8 +77,8 @@ return [
         'settings' => [
             'worker_num' => swoole_cpu_num(),
             'open_websocket_protocol' => true,
-            'pid_file' => runtime_path('ws.server.pid'),
-            'log_file' => runtime_path('logs/mini.ws.log'),
+            'pid_file' => runtime_path('wshttp.server.pid'),
+            'log_file' => runtime_path('logs/mini.wshttp.log'),
             'log_level' => SWOOLE_LOG_ERROR,
         ],
         'mode' => SWOOLE_PROCESS,
