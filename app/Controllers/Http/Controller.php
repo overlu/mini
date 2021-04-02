@@ -7,13 +7,13 @@ declare(strict_types=1);
 
 namespace App\Controllers\Http;
 
-use Mini\Contracts\HttpMessage\ControllerInterface;
+use Mini\Contracts\HttpMessage\HttpControllerInterface;
 
 /**
  * Class Controller
  * @package App\Controller
  */
-class Controller implements ControllerInterface
+class Controller implements HttpControllerInterface
 {
     /**
      * @param string|null $success_message

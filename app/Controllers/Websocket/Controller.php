@@ -7,13 +7,16 @@ declare(strict_types=1);
 
 namespace App\Controllers\Websocket;
 
-use Mini\Contracts\HttpMessage\ControllerInterface;
+use Mini\Contracts\HttpMessage\WebsocketControllerInterface;
+use Swoole\Http\Request;
+use Swoole\WebSocket\Frame;
+use Swoole\WebSocket\Server;
 
 /**
  * Class Controller
  * @package App\Controller
  */
-class Controller implements ControllerInterface
+class Controller implements WebsocketControllerInterface
 {
     /**
      * @param string|null $success_message
@@ -60,5 +63,35 @@ class Controller implements ControllerInterface
     public function afterDispatch($response)
     {
         return $response;
+    }
+
+    /**
+     * @param Server $server
+     * @param Request $request
+     * @param array $routeData
+     */
+    public function onOpen(Server $server, Request $request, array $routeData)
+    {
+        // TODO: Implement onOpen() method.
+    }
+
+    /**
+     * @param Server $server
+     * @param Frame $frame
+     * @param array $routeData
+     */
+    public function onMessage(Server $server, Frame $frame, array $routeData)
+    {
+        // TODO: Implement onMessage() method.
+    }
+
+    /**
+     * @param Server $server
+     * @param $fd
+     * @param array $routeData
+     */
+    public function onClose(Server $server, $fd, array $routeData)
+    {
+        // TODO: Implement onClose() method.
     }
 }

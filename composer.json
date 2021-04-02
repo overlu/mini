@@ -17,7 +17,7 @@
     "require": {
         "php": ">=7.4",
         "ext-swoole": ">=4.5",
-        "overlu/mini-framework": "~2.9.0"
+        "overlu/mini-framework": "~2.10.0"
     },
     "require-dev": {
         "symfony/var-dumper": "^5.1",

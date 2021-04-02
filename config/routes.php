@@ -22,7 +22,7 @@ return [
      * websocket server route
      */
     'ws' => [
-        ['message/{id}', 'IndexController@message'],
+        ['/{id}', 'IndexController'],
     ],
 
     /**
