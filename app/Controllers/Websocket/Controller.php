@@ -19,6 +19,14 @@ use Swoole\WebSocket\Server;
 class Controller implements WebsocketControllerInterface
 {
     /**
+     * Controller constructor.
+     * @param array $routeData
+     */
+    public function __construct(array $routeData)
+    {
+    }
+
+    /**
      * @param string|null $success_message
      * @param array $data
      * @return array
@@ -47,10 +55,11 @@ class Controller implements WebsocketControllerInterface
 
     /**
      * run before dispatch method
-     * @param $method
+     * @param string $className
+     * @param array $routeData
      * @return mixed
      */
-    public function beforeDispatch($method)
+    public function beforeDispatch(string $className, array $routeData)
     {
         return null;
     }
@@ -58,38 +67,26 @@ class Controller implements WebsocketControllerInterface
     /**
      * run after dispatch method
      * @param $response
+     * @param Frame $frame
+     * @param string $className
+     * @param array $routeData
      * @return mixed
      */
-    public function afterDispatch($response)
+    public function afterDispatch($response, Frame $frame, string $className, array $routeData)
     {
         return $response;
     }
 
-    /**
-     * @param Server $server
-     * @param Request $request
-     * @param array $routeData
-     */
     public function onOpen(Server $server, Request $request, array $routeData)
     {
         // TODO: Implement onOpen() method.
     }
 
-    /**
-     * @param Server $server
-     * @param Frame $frame
-     * @param array $routeData
-     */
     public function onMessage(Server $server, Frame $frame, array $routeData)
     {
         // TODO: Implement onMessage() method.
     }
 
-    /**
-     * @param Server $server
-     * @param $fd
-     * @param array $routeData
-     */
     public function onClose(Server $server, $fd, array $routeData)
     {
         // TODO: Implement onClose() method.
