@@ -25,4 +25,9 @@ return [
      * 密钥，确保分布式部署时每台服务器都一致
      */
     'secret_key' => 'HI^FLF%(FCL$IF1AX(&%O',
+
+    /**
+     *  用户同时在线设备数，0不限制
+     */
+    'max_num_of_uid_online' => 0
 ];
