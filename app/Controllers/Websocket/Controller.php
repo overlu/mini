@@ -77,17 +77,33 @@ class Controller implements WebsocketControllerInterface
         return $response;
     }
 
+    /**
+     * @param Server $server
+     * @param Request $request
+     * @param array $routeData
+     */
     public function onOpen(Server $server, Request $request, array $routeData)
     {
         // TODO: Implement onOpen() method.
     }
 
+    /**
+     * @param Server $server
+     * @param Frame $frame
+     * @param array $routeData
+     */
     public function onMessage(Server $server, Frame $frame, array $routeData)
     {
         // TODO: Implement onMessage() method.
     }
 
-    public function onClose(Server $server, $fd, array $routeData)
+    /**
+     * @param Server $server
+     * @param int $fd
+     * @param array $routeData
+     * @param int $reactorId
+     */
+    public function onClose(Server $server, int $fd, array $routeData, int $reactorId)
     {
         // TODO: Implement onClose() method.
     }
