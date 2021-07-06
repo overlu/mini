@@ -86,7 +86,7 @@ return [
         \Mini\Session\SessionServiceProvider::class,
         \Mini\Hashing\HashServiceProvider::class,
         \Mini\View\ViewServiceProvider::class,
-        \Mini\Service\WsServer\WebsockDCSServiceProvider::class,
+        \Mini\Service\WsServer\WebsocketDCSServiceProvider::class,
 
 
         /**
