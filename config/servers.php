@@ -62,6 +62,12 @@ return [
             'pid_file' => runtime_path('ws.server.pid'),
             'log_file' => runtime_path('logs/mini.ws.log'),
             'log_level' => SWOOLE_LOG_ERROR,
+            'task_worker_num' => swoole_cpu_num(),   // 配置 Task 进程的数量。【默认值：未配置则不启动 task】
+            'task_enable_coroutine' => true,  // 开启 Task 协程支持
+            'task_use_object' => true,    // 设置为 true 时，onTask 回调将变成对象模式
+            'upload_tmp_dir' => runtime_path('tmp'),
+            'heartbeat_idle_time' => 600,   // 表示一个连接如果600秒内未向服务器发送任何数据，此连接将被强制关闭
+            'heartbeat_check_interval' => 60, // 表示每60秒遍历一次，默认为false
         ],
         'mode' => SWOOLE_PROCESS,
     ],
@@ -70,9 +76,9 @@ return [
         'port' => 9503,
         'sock_type' => SWOOLE_SOCK_TCP,
         'callbacks' => [
-            "open" => [WebSocket::class, 'onOpen'],
-            "message" => [WebSocket::class, 'onMessage'],
-            "close" => [WebSocket::class, 'onClose'],
+//            "open" => [WebSocket::class, 'onOpen'],
+//            "message" => [WebSocket::class, 'onMessage'],
+//            "close" => [WebSocket::class, 'onClose'],
         ],
         'settings' => [
             'reactor_num' => swoole_cpu_num() * 2,
@@ -86,6 +92,8 @@ return [
             'task_use_object' => true,    // 设置为 true 时，onTask 回调将变成对象模式
             'upload_tmp_dir' => runtime_path('tmp'),
             'open_http2_protocol' => true,
+            'heartbeat_idle_time' => 600,   // 表示一个连接如果600秒内未向服务器发送任何数据，此连接将被强制关闭
+            'heartbeat_check_interval' => 60, // 表示每60秒遍历一次，默认为false
         ],
         'mode' => SWOOLE_PROCESS,
     ],
