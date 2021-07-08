@@ -12,14 +12,13 @@ return [
      */
     'default' => env('FILESYSTEM_DRIVER', 'local'),
 
-    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+    'cloud' => env('FILESYSTEM_CLOUD', 'oss'),
 
     /**
      * Filesystem Disks
-     * Supported Drivers: "local", "ftp", "sftp", "s3"
+     * Supported Drivers: "local", "ftp", "sftp", "s3", "oss"
      */
     'disks' => [
-
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
@@ -51,7 +50,19 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
-
+        'oss' => [
+            'driver' => 'oss',
+            'access_id' => env('OSS_ACCESS_ID'),
+            'access_secret' => env('OSS_ACCESS_SECRET'),
+            'bucket' => env('OSS_BUCKET'),
+            'endpoint' => env('OSS_ENDPOINT'),
+            'timeout' => 3600,
+            'connect_timeout' => 10,
+            'is_cname' => false,
+//            'url' => '',  // CDN
+            'token' => null,
+            'proxy' => null,
+        ],
     ],
 
     /**
