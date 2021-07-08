@@ -50,7 +50,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh_CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -87,13 +87,13 @@ return [
         \Mini\Hashing\HashServiceProvider::class,
         \Mini\View\ViewServiceProvider::class,
         \Mini\Service\WsServer\WebsocketDCSServiceProvider::class,
+        \Mini\Console\ConsoleServiceProvider::class,
 
 
         /**
          * Application Service Providers...
          */
         \App\Providers\AppServiceProvider::class,
-
     ],
 
     /**
