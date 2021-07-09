@@ -59,7 +59,7 @@ return [
             'timeout' => 3600,
             'connect_timeout' => 10,
             'is_cname' => false,
-//            'url' => '',  // CDN
+            'url' => env('OSS_URL'),  // CDN
             'token' => null,
             'proxy' => null,
         ],
