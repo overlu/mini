@@ -16,7 +16,7 @@ return [
     /**
      * default timezone
      */
-    'timezone' => 'Asia/Shanghai',
+    'timezone' => 'UTC',
 
     /**
      * enable auto reload
