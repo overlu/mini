@@ -55,7 +55,7 @@ return [
             ],
             'strict' => true,
             'engine' => null,
-            'timezone' => env('DB_TIMEZONE', '+00:00'),
+//            'timezone' => env('DB_TIMEZONE', '+00:00'),
             'size' => swoole_cpu_num() * 2 + 1,   // 连接池数量
         ],
 
