@@ -25,6 +25,12 @@ return [
     'hot_reload' => true,
 
     /**
+     * hot reload watch dirs
+     * @params string | array
+     */
+    'watch_dir' => ['app'],
+
+    /**
      * enable debug model, if true, will show debug info
      */
     'debug' => env('APP_DEBUG', false),
