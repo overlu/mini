@@ -5,8 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Crontabs;
-
+namespace App\Crontab;
 
 use Mini\Crontab\CrontabTaskInterface;
 

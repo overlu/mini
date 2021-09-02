@@ -28,7 +28,7 @@ return [
      * hot reload watch dirs
      * @params string | array
      */
-    'watch_dir' => ['app'],
+    'watch_dir' => ['app', 'resources/views'],
 
     /**
      * enable debug model, if true, will show debug info
@@ -83,13 +83,13 @@ return [
         \Mini\Exception\ExceptionServiceProvider::class,
         \Mini\Filesystem\FilesystemServiceProvider::class,
         \Mini\Events\EventServiceProvider::class,
-        \Mini\Cache\CacheServiceProviders::class,
         \Mini\Logging\LoggingServiceProvider::class,
         \Mini\Database\Mysql\EloquentServiceProvider::class,
         \Mini\Database\Redis\RedisServiceProvider::class,
+        \Mini\Cache\CacheServiceProviders::class,
         \Mini\Translate\TranslateServiceProvider::class,
         \Mini\Validator\ValidationServiceProvider::class,
-        \Mini\Session\SessionServiceProvider::class,
+//        \Mini\Session\SessionServiceProvider::class,
         \Mini\Hashing\HashServiceProvider::class,
         \Mini\View\ViewServiceProvider::class,
 //        \Mini\Service\WsServer\WebsocketDCSServiceProvider::class,
