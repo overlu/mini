@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace App\Exceptions;
 
+use Exception;
 use Mini\Contracts\HttpMessage\RequestInterface;
 use Mini\Contracts\HttpMessage\WebsocketRequestInterface;
 use Mini\Exception\Handler as MiniHandler;
@@ -21,6 +22,7 @@ class Handler extends MiniHandler
 
     /**
      * @param Throwable $throwable
+     * @throws Throwable
      */
     public function report(Throwable $throwable): void
     {
@@ -30,7 +32,7 @@ class Handler extends MiniHandler
     /**
      * @param RequestInterface|WebsocketRequestInterface $request
      * @param Throwable $throwable
-     * @throws \JsonException
+     * @throws Exception
      */
     public function render($request, Throwable $throwable): void
     {
