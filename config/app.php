@@ -81,6 +81,7 @@ return [
          * Mini Framework Service Providers...
          */
         \Mini\Exception\ExceptionServiceProvider::class,
+        \Mini\Config\ConfigServiceProvider::class,
         \Mini\Filesystem\FilesystemServiceProvider::class,
         \Mini\Events\EventServiceProvider::class,
         \Mini\Logging\LoggingServiceProvider::class,

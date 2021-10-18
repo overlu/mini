@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Mini\Contracts\ServiceProviderInterface;
+use Mini\Support\ServiceProvider;
 use Swoole\Server;
 
-class AppServiceProvider implements ServiceProviderInterface
+class AppServiceProvider extends ServiceProvider
 {
 
     /**
@@ -19,7 +19,7 @@ class AppServiceProvider implements ServiceProviderInterface
      */
     public function register(?Server $server = null, ?int $workerId = null): void
     {
-        /*app()->bind(
+        /*$this->app->bind(
             \Mini\Pagination\LengthAwarePaginator::class,
             function ($app, $options) {
                 return new \App\Utils\Paginator($options['items'], $options['total'], $options['perPage'], $options['currentPage'], $options['options']);
