@@ -165,6 +165,8 @@ return [
         \Mini\View\ViewServiceProvider::class,
 //        \Mini\Service\WsServer\WebsocketDCSServiceProvider::class,
         \Mini\Console\ConsoleServiceProvider::class,
+//        \MiniImage\ImageServiceProvider::class,  // require mini-image
+//        \MiniCaptcha\CaptchaServiceProvider::class,  // require mini-captcha
 
 
         /**
