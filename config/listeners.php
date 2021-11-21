@@ -24,6 +24,10 @@ return [
             MiniServer::class,
             'workerStart'
         ],
+        'workerStop' => [
+            MiniServer::class,
+            'workerStop'
+        ]
     ],
     'events' => [
         /*\App\Events\TestEvent::class => \App\Listeners\TestListener::class,

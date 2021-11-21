@@ -42,6 +42,7 @@ return [
     |
     */
     'timezone' => 'UTC',
+//    'timezone' => 'Asia/Shanghai',
 
     /*
     |--------------------------------------------------------------------------
@@ -156,6 +157,7 @@ return [
         \Mini\Events\EventServiceProvider::class,
         \Mini\Logging\LoggingServiceProvider::class,
         \Mini\Database\Mysql\EloquentServiceProvider::class,
+        \Mini\Database\Mini\MiniDBServiceProvider::class,
         \Mini\Database\Redis\RedisServiceProvider::class,
         \Mini\Cache\CacheServiceProviders::class,
         \Mini\Translate\TranslateServiceProvider::class,
@@ -165,9 +167,18 @@ return [
         \Mini\View\ViewServiceProvider::class,
 //        \Mini\Service\WsServer\WebsocketDCSServiceProvider::class,
         \Mini\Console\ConsoleServiceProvider::class,
-//        \MiniImage\ImageServiceProvider::class,  // require mini-image
-//        \MiniCaptcha\CaptchaServiceProvider::class,  // require mini-captcha
-
+        /**
+         * require mini-image
+         */
+//        \MiniImage\ImageServiceProvider::class,
+        /**
+         * require mini-captcha
+         */
+//        \MiniCaptcha\CaptchaServiceProvider::class,
+        /**
+         *  require mini-sms
+         */
+//        \MiniSMS\Providers\SMSServiceProvider::class,
 
         /**
          * Application Service Providers...
