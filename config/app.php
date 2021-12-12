@@ -68,7 +68,7 @@ return [
      |
      */
 
-    'hot_reload' => true,
+    'hot_reload' => env('HOT_RELOAD', false),
 
     'watch_dir' => ['app', 'resources/views'],
 
