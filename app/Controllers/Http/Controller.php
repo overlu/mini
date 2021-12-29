@@ -61,4 +61,14 @@ class Controller implements HttpControllerInterface
     {
         return $response;
     }
+
+    /**
+     * disable the register middleware
+     * @param string $middleware
+     * @return bool
+     */
+    public function disableMiddleware(string $middleware): bool
+    {
+        return false;
+    }
 }

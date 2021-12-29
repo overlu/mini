@@ -1,0 +1,17 @@
+[Unit]
+Description=Mini Server
+After=network.target
+After=syslog.target
+
+[Service]
+Type=simple
+LimitNOFILE=1048576
+User=www
+Group=www
+ExecStart=/usr/bin/php /path_to_mini/bin/mini start wshttp
+ExecReload=/usr/bin/php /path_to_mini/bin/mini reload wshttp
+ExecStop=/usr/bin/php /path_to_mini/bin/mini stop wshttp
+Restart=always
+
+[Install]
+WantedBy=multi-user.target graphical.target
