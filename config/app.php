@@ -91,11 +91,6 @@ return [
     'debug_theme' => 'dark',
 
     /*
-     | enable route cache
-     */
-    'route_cached' => env('ROUTE_CACHED', false),
-
-    /*
      |--------------------------------------------------------------------------
      | Application URL
      |--------------------------------------------------------------------------
@@ -147,26 +142,6 @@ return [
     |
     */
     'providers' => [
-        /**
-         * Mini Framework Service Providers...
-         */
-        \Mini\Exception\ExceptionServiceProvider::class,
-        \Mini\Config\ConfigServiceProvider::class,
-        \Mini\Encryption\EncryptionServiceProvider::class,
-        \Mini\Filesystem\FilesystemServiceProvider::class,
-        \Mini\Events\EventServiceProvider::class,
-        \Mini\Logging\LoggingServiceProvider::class,
-        \Mini\Database\Mysql\EloquentServiceProvider::class,
-        \Mini\Database\Mini\MiniDBServiceProvider::class,
-        \Mini\Database\Redis\RedisServiceProvider::class,
-        \Mini\Cache\CacheServiceProviders::class,
-        \Mini\Translate\TranslateServiceProvider::class,
-        \Mini\Validator\ValidationServiceProvider::class,
-//        \Mini\Session\SessionServiceProvider::class,
-        \Mini\Hashing\HashServiceProvider::class,
-        \Mini\View\ViewServiceProvider::class,
-//        \Mini\Service\WsServer\WebsocketDCSServiceProvider::class,
-        \Mini\Console\ConsoleServiceProvider::class,
         /**
          * require mini-image
          */
