@@ -143,6 +143,10 @@ return [
     */
     'providers' => [
         /**
+         * websocket server load balance
+         */
+//        \Mini\Service\WsServer\WebsocketDCSServiceProvider::class,
+        /**
          * require mini-image
          */
 //        \MiniImage\ImageServiceProvider::class,

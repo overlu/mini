@@ -13,7 +13,8 @@ return [
     'default_logger' => '.',
 
     /**
-     * If true, will print the log on the console
+     * the types, will print the log on the console
+     * ALL, ERROR, DEBUG, INFO, ALTER, CRITICAL, EMERGENCY, NOTICE
      */
     'output' => env('LOGGING_OUTPUT', false),
 
