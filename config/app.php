@@ -169,8 +169,10 @@ return [
      * register the middleware
      */
     'middleware' => [
+//        \App\Middlewares\AllowOriginMiddleware::class,
         \Mini\Logging\RequestIdMiddleware::class,
 //        \Mini\Session\SessionMiddleware::class,
+//        \App\Middlewares\FromWhichHostMiddleware::class,
     ],
 
     /**

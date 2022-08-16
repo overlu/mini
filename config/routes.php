@@ -30,4 +30,10 @@ return [
      * support `callable` or `controllerClass@method`
      */
 //    'default' => 'IndexController@index',
+
+    'cors' => [
+        'enable' => false,
+        'access_control_allow_origin' => env('ACCESS_CONTROL_ALLOW_ORIGIN', '*'),
+        'access-control_allow_methods' => env('ACCESS_CONTROL_ALLOW_METHODS', 'GET, POST, DELETE, PUT, PATCH, OPTIONS')
+    ]
 ];
