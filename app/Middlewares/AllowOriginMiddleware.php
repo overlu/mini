@@ -35,9 +35,9 @@ class AllowOriginMiddleware implements MiddlewareInterface
     {
         if (config('routes.cors.enable')) {
             return $response
-                ->withStatus(200)
                 ->withHeader('Access-Control-Allow-Origin', config('routes.cors.access_control_allow_origin', '*'))
-                ->withHeader('Access-Control-Allow-Methods', config('routes.cors.access-control_allow_methods', '*'));
+                ->withHeader('Access-Control-Allow-Methods', config('routes.cors.access-control_allow_methods', '*'))
+                ->withHeader('Access-Control-Allow-Headers', 'Authorization, User-Agent, Keep-Alive, Content-Type, X-Requested-With, token,');
         }
 
         return $response;
