@@ -36,10 +36,12 @@ class IndexController extends Controller
 
     /**
      * @param Server $server
-     * @param $fd
+     * @param int $fd
      * @param array $routeData
+     * @param int $reactorId
+     * @return void
      */
-    public function onClose(Server $server, $fd, array $routeData)
+    public function onClose(Server $server, int $fd, array $routeData, int $reactorId): void
     {
         dump('close');
     }

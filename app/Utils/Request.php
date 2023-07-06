@@ -16,9 +16,6 @@ use Swoole\Coroutine\Http\Client;
  */
 class Request
 {
-//    protected static array $headers = ["Content-type" => "application/json;charset='utf-8'", "Accept" => "application/json"];
-//    protected static array $headers = ["Content-type"=> "text/plain;charset=UTF-8"];
-
     /**
      * post请求
      * @param string $url
@@ -32,10 +29,28 @@ class Request
         $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
         $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
-        $client->post($scheme['path'] ?? '/', $data);
+        $client->post($scheme['path'] . (empty($scheme['query']) ? '' : '?' . $scheme['query']), $data);
         $content = $client->getBody();
         $client->close();
-        return is_json($content) ? json_decode($content, true) : $content;
+        return $content;
+    }
+
+    /**
+     * @param string $url
+     * @param mixed $data
+     * @param array $headers
+     * @return mixed
+     */
+    public static function postJson(string $url, $data = [], array $headers = [])
+    {
+        $scheme = self::parseUrl($url);
+        $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
+        $client->setHeaders($headers);
+        $client->set(['timeout' => 5]);
+        $client->post($scheme['path'] . (empty($scheme['query']) ? '' : '?' . $scheme['query']), $data);
+        $content = json_decode($client->getBody(), true);
+        $client->close();
+        return $content;
     }
 
     /**
@@ -51,10 +66,39 @@ class Request
         $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
         $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
-        $client->get(($scheme['path'] ?? '/') . '?' . http_build_query($data));
+        $client->get($scheme['path'] . '?' . http_build_query($data));
         $content = $client->getBody();
         $client->close();
-        return is_json($content) ? json_decode($content, true) : $content;
+        return $content;
+    }
+
+    /**
+     * @param string $url
+     * @param array $data
+     * @param array $headers
+     * @return mixed
+     */
+    public static function getJson(string $url, array $data = [], array $headers = [])
+    {
+        $scheme = self::parseUrl($url);
+        $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
+        $client->setHeaders($headers);
+        $client->set(['timeout' => 5]);
+        $client->get($scheme['path'] . '?' . http_build_query($data));
+        $content = json_decode($client->getBody(), true);
+        $client->close();
+        return $content;
+    }
+
+    /**
+     * delete请求
+     * @param string $url
+     * @param array $headers
+     * @return mixed
+     */
+    public static function delete(string $url, array $headers = [])
+    {
+        return static::execute('DELETE', $url, [], $headers);
     }
 
     /**
@@ -68,7 +112,7 @@ class Request
         $scheme = self::parseUrl($url);
         $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
         $client->set(['timeout' => -1]);
-        $result = $client->download($scheme['path'] ?? '/', $saveFile);
+        $result = $client->download($scheme['path'], $saveFile);
         $client->close();
         return $result;
     }
@@ -86,24 +130,30 @@ class Request
     /**
      * @param string $method
      * @param string $url
-     * @param array $data
+     * @param mixed $data
      * @param array $headers
      * @param array $cookies
      * @return mixed
      */
-    public static function execute(string $method, string $url, array $data = [], array $headers = [], array $cookies = [])
+    public static function execute(string $method, string $url, $data = [], array $headers = [], array $cookies = [])
     {
         $scheme = self::parseUrl($url);
         $client = new Client($scheme['host'], $scheme['port'], $scheme['ssl']);
-        $client->setHeaders($headers);
         $client->set(['timeout' => 5]);
-        $client->setData($data);
-        $client->setCookies($cookies);
+        if (!empty($data)) {
+            $client->setData($data);
+        }
+        if (!empty($cookies)) {
+            $client->setCookies($cookies);
+        }
+        if (!empty($headers)) {
+            $client->setHeaders($headers);
+        }
         $client->setMethod(strtoupper($method));
-        $client->execute($scheme['path'] ?? '/');
+        $client->execute($scheme['path']);
         $content = $client->getBody();
         $client->close();
-        return is_json($content) ? json_decode($content, true) : $content;
+        return $content;
     }
 
     /**
@@ -117,8 +167,13 @@ class Request
             throw new RuntimeException('Illegal url format: ' . $url);
         }
         $scheme['scheme'] = $scheme['scheme'] ?? 'http';
-        $scheme['port'] = $scheme['port'] ?? 80;
+        if (!in_array($scheme['scheme'], ['http', 'https'])) {
+            throw new RuntimeException('unknown scheme "' . $scheme['scheme'] . '"');
+        }
         $scheme['ssl'] = strtolower($scheme['scheme']) === 'https';
+        $scheme['port'] = $scheme['port'] ?? ($scheme['ssl'] ? 443 : 80);
+        $scheme['path'] = $scheme['path'] ?? '/';
+
         return $scheme;
     }
 }

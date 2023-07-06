@@ -16,11 +16,12 @@ use Mini\Contracts\HttpMessage\HttpControllerInterface;
 class Controller implements HttpControllerInterface
 {
     /**
-     * @param string|null $success_message
-     * @param array $data
+     * @param mixed $data
+     * @param string $success_message
+     * @param int $code
      * @return array
      */
-    public function success(?string $success_message = 'succeed', array $data = []): array
+    public function success($data = [], string $success_message = 'succeed', int $code = 200): array
     {
         return [
             'code' => 200,
@@ -30,11 +31,11 @@ class Controller implements HttpControllerInterface
     }
 
     /**
-     * @param string|null $error_message
+     * @param string $error_message
      * @param int $code
      * @return array
      */
-    public function failed(?string $error_message = 'failed', $code = 0): array
+    public function failed(string $error_message = 'failed', int $code = 0): array
     {
         return [
             'code' => $code,
