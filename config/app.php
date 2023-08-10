@@ -158,7 +158,10 @@ return [
          *  require mini-sms
          */
 //        \MiniSMS\Providers\SMSServiceProvider::class,
-
+        /**
+         *  require mini-pay
+         */
+//        \MiniSMS\Provider\PayServiceProvider::class,
         /**
          * Application Service Providers...
          */
