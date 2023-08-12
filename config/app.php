@@ -183,5 +183,12 @@ return [
      */
     'bind' => [
 //        'xxxInterface' => 'xxx'
+    ],
+
+    /**
+     * exception
+     */
+    'exception' => [
+        'show_trace' => false
     ]
 ];
