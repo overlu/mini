@@ -7,14 +7,17 @@ declare(strict_types=1);
 
 namespace App\Crontab;
 
-use Mini\Crontab\CrontabTaskInterface;
+use Exception;
+use Mini\Crontab\AbstractCrontabTask;
+use Mini\Support\Command;
 
-class DemoCrontabTask implements CrontabTaskInterface
+class DemoCrontabTask extends AbstractCrontabTask
 {
 
-    public function handle(): void
+    public function handle()
     {
-        echo "demo\n";
+        Command::info('success');
+        return 'done';
     }
 
     public function name(): string
@@ -29,11 +32,21 @@ class DemoCrontabTask implements CrontabTaskInterface
 
     public function rule(): string
     {
-        return '*/1 * * * * *';
+        return $this->everySecond();
     }
 
     public function status(): bool
     {
         return true;
+    }
+
+    public function success($result): void
+    {
+        dump($result);
+    }
+
+    public function fail(Exception $exception): void
+    {
+        dump($exception);
     }
 }

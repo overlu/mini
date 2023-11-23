@@ -1,8 +1,7 @@
 <?php
 /**
- * This file is part of zhishuo.
+ * This file is part of mini.
  * @auth lupeng
- * @date 2021/11/23 19:59
  */
 declare(strict_types=1);
 
@@ -16,6 +15,7 @@ class FromWhichHostMiddleware implements MiddlewareInterface
 
     public function before(string $method, string $className)
     {
+        return null;
     }
 
     /**

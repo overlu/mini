@@ -5,13 +5,12 @@
  */
 declare(strict_types=1);
 
-namespace App\Observers;
+namespace App\Listeners;
 
-use App\Models\User;
-
-class DemoProvider
+class DemoListener
 {
-    public function created(User $user)
+    public function handle(): void
     {
+        echo 'test event';
     }
 }

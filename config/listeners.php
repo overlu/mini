@@ -30,7 +30,7 @@ return [
         ]
     ],
     'events' => [
-        /*\App\Events\TestEvent::class => \App\Listeners\TestListener::class,
+        /*\App\Events\DemoEvent::class => \App\Listeners\DemoListener::class,
         'test' => function () {
             dump('test');
         },*/

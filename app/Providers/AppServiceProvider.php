@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Mini\Support\ServiceProvider;
+use Mini\Service\AbstractServiceProvider;
 use Swoole\Server;
 
-class AppServiceProvider extends ServiceProvider
+class AppServiceProvider extends AbstractServiceProvider
 {
     public function register(): void
     {

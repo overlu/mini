@@ -5,12 +5,11 @@
  */
 declare(strict_types=1);
 
-namespace App\Listeners;
+namespace App\Events;
 
-class TestListener
+class DemoEvent
 {
-    public function handle(): void
+    public function __construct()
     {
-        echo 'test event';
     }
 }
