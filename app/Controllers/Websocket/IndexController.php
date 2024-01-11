@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\Websocket;
 
+use Mini\Service\WsServer\User;
 use Swoole\Http\Request;
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server;
@@ -21,6 +22,7 @@ class IndexController extends Controller
     public function onOpen(Server $server, Request $request, array $routeData)
     {
         dump('open');
+//        $this->bindFd($request->fd);
     }
 
     /**
@@ -44,5 +46,28 @@ class IndexController extends Controller
     public function onClose(Server $server, int $fd, array $routeData, int $reactorId): void
     {
         dump('close');
+//        $this->unbindFd($fd);
+    }
+
+    /**
+     * 绑定fd
+     * @param int $fd
+     * @return void
+     */
+    private function bindFd(int $fd): void
+    {
+        User::bind($this->user_id, $fd);
+    }
+
+    /**
+     * 解绑fd
+     * @param int $fd
+     */
+    private function unbindFd(int $fd): void
+    {
+        $uids = User::getUserByFd($fd);
+        foreach ($uids as $uid) {
+            User::unbind($uid, $fd);
+        }
     }
 }

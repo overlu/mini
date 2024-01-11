@@ -13,12 +13,12 @@ class WebSocket
 {
     public static function onOpen(Server $server, $request)
     {
-        echo "server: handshake success with fd{$request->fd}\n";
+        dump("server: handshake success with fd{$request->fd}");
     }
 
     public static function onMessage(Server $server, $frame)
     {
-        echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
+        dump("receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}");
         $server->push($frame->fd, 'this is server');
     }
 

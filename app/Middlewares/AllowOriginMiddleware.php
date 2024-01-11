@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace App\Middlewares;
 
-use Mini\Contracts\MiddlewareInterface;
+use Mini\Contracts\Middleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface;
 
 class AllowOriginMiddleware implements MiddlewareInterface

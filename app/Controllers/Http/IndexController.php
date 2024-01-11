@@ -28,7 +28,7 @@ class IndexController extends Controller
      * @return array|string
      * @throws Exception
      */
-    public function validate(RequestInterface $request)
+    public function validate(RequestInterface $request): array|string
     {
         $validation = Validator::validate($request->all(), [
             'name' => 'required|min:6'

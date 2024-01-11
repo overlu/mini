@@ -31,7 +31,7 @@ class Controller implements HttpControllerInterface
      * @param int $code
      * @return array
      */
-    public function success($data = [], string $success_message = 'succeed', int $code = 200): array
+    public function success(mixed $data = [], string $success_message = 'succeed', int $code = 200): array
     {
         if ($code < 200 || $code >= 300) {
             throw new RuntimeException('success code should between 200 and 300, ' . $code . ' given');
@@ -46,10 +46,10 @@ class Controller implements HttpControllerInterface
     /**
      * @param string $error_message
      * @param int $code
-     * @param mixed $data
+     * @param mixed|array $data
      * @return array
      */
-    public function failed(string $error_message = 'failed', int $code = 0, $data = []): array
+    public function failed(string $error_message = 'failed', int $code = 0, mixed $data = []): array
     {
         if ($code >= 200 && $code < 300) {
             throw new RuntimeException('error code should not between 200 and 300, ' . $code . ' given');
@@ -64,10 +64,10 @@ class Controller implements HttpControllerInterface
     /**
      * run before dispatch method
      * @param $method
-     * @return mixed|void
+     * @return mixed
      * @throws Exception
      */
-    public function beforeDispatch($method)
+    public function beforeDispatch($method): mixed
     {
         return null;
     }
@@ -77,7 +77,7 @@ class Controller implements HttpControllerInterface
      * @param $response
      * @return mixed
      */
-    public function afterDispatch($response)
+    public function afterDispatch($response): mixed
     {
         return $response;
     }

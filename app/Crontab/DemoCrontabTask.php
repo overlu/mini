@@ -13,7 +13,6 @@ use Mini\Support\Command;
 
 class DemoCrontabTask extends AbstractCrontabTask
 {
-
     public function handle()
     {
         Command::info('success');

@@ -42,26 +42,28 @@ class MqttServer implements MqttInterface
 
     public function onMqPingreq(Server $server, int $fd, $fromId, $data): bool
     {
-        // TODO: Implement onMqPingreq() method.
+        //
+        return true;
     }
 
     public function onMqDisconnect(Server $server, int $fd, $fromId, $data): bool
     {
-        // TODO: Implement onMqDisconnect() method.
+        //
+        return true;
     }
 
     public function onMqPublish(Server $server, int $fd, $fromId, $data)
     {
-        // TODO: Implement onMqPublish() method.
+        //
     }
 
     public function onMqSubscribe(Server $server, int $fd, $fromId, $data)
     {
-        // TODO: Implement onMqSubscribe() method.
+        //
     }
 
     public function onMqUnsubscribe(Server $server, int $fd, $fromId, $data)
     {
-        // TODO: Implement onMqUnsubscribe() method.
+        //
     }
 }

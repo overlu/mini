@@ -29,12 +29,12 @@ class Controller implements WebsocketControllerInterface
 
     /**
      * @param string $action
-     * @param array $data
+     * @param mixed $data
      * @param string $success_message
      * @param int $code
      * @return array
      */
-    public function success(string $action, $data = [], string $success_message = 'succeed', int $code = 200): array
+    public function success(string $action, mixed $data = [], string $success_message = 'succeed', int $code = 200): array
     {
         if ($code < 200 || $code > 300) {
             throw new RuntimeException('success code should between 200 and 300, ' . $code . 'given');
@@ -49,12 +49,12 @@ class Controller implements WebsocketControllerInterface
 
     /**
      * @param string $action
-     * @param array $data
+     * @param mixed $data
      * @param string $error_message
      * @param int $code
      * @return array
      */
-    public function failed(string $action, $data = [], string $error_message = 'failed', int $code = 0): array
+    public function failed(string $action, mixed $data = [], string $error_message = 'failed', int $code = 0): array
     {
         if ($code >= 200 && $code < 300) {
             throw new RuntimeException('error code should not between 200 and 300, ' . $code . 'given');
@@ -73,7 +73,7 @@ class Controller implements WebsocketControllerInterface
      * @param array $routeData
      * @return mixed
      */
-    public function beforeDispatch(string $className, array $routeData)
+    public function beforeDispatch(string $className, array $routeData): mixed
     {
         return null;
     }
@@ -86,7 +86,7 @@ class Controller implements WebsocketControllerInterface
      * @param array $routeData
      * @return mixed
      */
-    public function afterDispatch($response, Frame $frame, string $className, array $routeData)
+    public function afterDispatch($response, Frame $frame, string $className, array $routeData): mixed
     {
         return $response;
     }
@@ -98,7 +98,7 @@ class Controller implements WebsocketControllerInterface
      */
     public function onOpen(Server $server, Request $request, array $routeData)
     {
-        // TODO: Implement onOpen() method.
+        //
     }
 
     /**
@@ -108,7 +108,7 @@ class Controller implements WebsocketControllerInterface
      */
     public function onMessage(Server $server, Frame $frame, array $routeData)
     {
-        // TODO: Implement onMessage() method.
+        //
     }
 
     /**
@@ -119,6 +119,6 @@ class Controller implements WebsocketControllerInterface
      */
     public function onClose(Server $server, int $fd, array $routeData, int $reactorId)
     {
-        // TODO: Implement onClose() method.
+        //
     }
 }
