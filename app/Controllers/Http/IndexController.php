@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace App\Controllers\Http;
 
 use Exception;
-use Mini\Contracts\HttpMessage\RequestInterface;
+use Mini\Contracts\Request;
 use Mini\Facades\Validator;
 
 class IndexController extends Controller
@@ -24,11 +24,11 @@ class IndexController extends Controller
     }
 
     /**
-     * @param RequestInterface $request
+     * @param Request $request
      * @return array|string
      * @throws Exception
      */
-    public function validate(RequestInterface $request): array|string
+    public function validate(Request $request): array|string
     {
         $validation = Validator::validate($request->all(), [
             'name' => 'required|min:6'

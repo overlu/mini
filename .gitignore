@@ -4,3 +4,4 @@ vendor
 .env
 storage/runtime/*.pid
 storage/runtime/cache
+composer.lock

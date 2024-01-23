@@ -7,9 +7,9 @@ declare(strict_types=1);
 
 namespace App\Controllers\Websocket;
 
+use Mini\Contracts\HttpMessage\WebsocketRequestInterface;
 use RuntimeException;
 use Mini\Contracts\HttpMessage\WebsocketControllerInterface;
-use Swoole\Http\Request;
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server;
 
@@ -93,10 +93,10 @@ class Controller implements WebsocketControllerInterface
 
     /**
      * @param Server $server
-     * @param Request $request
+     * @param WebsocketRequestInterface $request
      * @param array $routeData
      */
-    public function onOpen(Server $server, Request $request, array $routeData)
+    public function onOpen(Server $server, WebsocketRequestInterface $request, array $routeData)
     {
         //
     }

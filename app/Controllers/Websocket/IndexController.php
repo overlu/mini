@@ -7,8 +7,8 @@ declare(strict_types=1);
 
 namespace App\Controllers\Websocket;
 
+use Mini\Contracts\HttpMessage\WebsocketRequestInterface;
 use Mini\Service\WsServer\User;
-use Swoole\Http\Request;
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server;
 
@@ -16,13 +16,13 @@ class IndexController extends Controller
 {
     /**
      * @param Server $server
-     * @param Request $request
+     * @param WebsocketRequestInterface $request
      * @param array $routeData
      */
-    public function onOpen(Server $server, Request $request, array $routeData)
+    public function onOpen(Server $server, WebsocketRequestInterface $request, array $routeData)
     {
         dump('open');
-//        $this->bindFd($request->fd);
+//        $this->bindFd($request->getFd());
     }
 
     /**
