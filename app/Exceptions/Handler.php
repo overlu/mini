@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of Mini.
+ * This file is part of Reel.
  * @auth lupeng
  */
 declare(strict_types=1);
@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace App\Exceptions;
 
 use Exception;
-use Mini\Contracts\HttpMessage\RequestInterface;
 use Mini\Contracts\HttpMessage\WebsocketRequestInterface;
+use Mini\Contracts\Request as RequestInterface;
 use Mini\Exception\Handler as MiniHandler;
 use Throwable;
 
