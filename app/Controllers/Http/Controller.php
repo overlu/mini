@@ -84,9 +84,10 @@ class Controller implements HttpControllerInterface
 
     /**
      * @param string $middleware
+     * @param string $type [before, after]
      * @return bool
      */
-    public function disableMiddleware(string $middleware): bool
+    public function disableMiddleware(string $middleware, string $type): bool
     {
         return false;
     }
