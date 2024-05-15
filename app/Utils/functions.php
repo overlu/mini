@@ -1,17 +1,52 @@
 <?php
 /**
- * This file is part of Mini.
+ * This file is part of Reel.
  * @auth lupeng
  */
 declare(strict_types=1);
 
+use Carbon\Carbon;
+
 if (!function_exists('now')) {
     /**
-     * @param string $format
-     * @return false|string
+     * @param DateTimeZone|string|null $tz
+     * @return Carbon
      */
-    function now(string $format = 'Y-m-d H:i:s')
+    function now(DateTimeZone|string|null $tz = null): Carbon
     {
-        return date($format);
+        return Carbon::now($tz);
+    }
+}
+
+if (!function_exists('today')) {
+    /**
+     * @param DateTimeZone|string|null $tz
+     * @return Carbon
+     */
+    function today(DateTimeZone|string|null $tz = null): Carbon
+    {
+        return Carbon::today($tz);
+    }
+}
+
+if (!function_exists('yesterday')) {
+    /**
+     * @param DateTimeZone|string|null $tz
+     * @return Carbon
+     */
+    function yesterday(DateTimeZone|string|null $tz = null): Carbon
+    {
+        return Carbon::yesterday($tz);
+    }
+}
+
+if (!function_exists('tomorrow')) {
+    /**
+     * @param DateTimeZone|string|null $tz
+     * @return Carbon
+     */
+    function tomorrow(DateTimeZone|string|null $tz = null): Carbon
+    {
+        return Carbon::tomorrow($tz);
     }
 }
