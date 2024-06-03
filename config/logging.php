@@ -19,7 +19,7 @@ return [
     'output' => env('LOGGING_OUTPUT', false),
 
     /**
-     * Enable database query log, not exec in production environment and not use in mini db driver
+     * Enable database query log, not use in mini db driver
      */
     'database_query_log_enabled' => env('DATABASE_QUERY_LOG_ENABLE', false),
 
@@ -34,4 +34,9 @@ return [
      * Unit: milliseconds
      */
     'slower_than' => 0,
+
+    /**
+     * register the logger observer
+     */
+//    'listen' => \App\Observers\LoggerObserver::class
 ];
