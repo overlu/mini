@@ -147,6 +147,7 @@ return [
          * Application Service Providers...
          */
         \App\Providers\AppServiceProvider::class,
+//        \Mini\CDN\CDNServiceProvider::class
     ],
 
     /**
