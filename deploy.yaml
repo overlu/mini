@@ -1,0 +1,50 @@
+import: ./recipe.php
+
+config:
+  repository: ""
+  remote_user: root
+  application: mini
+  shared_dirs:
+    - storage
+  shared_files:
+    - .env
+  writable_dirs:
+    - storage
+    - storage/app
+    - storage/app/public
+    - storage/runtime
+    - storage/runtime/cache
+    - storage/runtime/logs
+    - storage/runtime/sessions
+    - storage/runtime/tmp
+    - storage/runtime/views
+    - storage/uploads
+  log_files: "storage/runtime/logs/*.log"
+  keep_releases: 5
+  http_user: false
+
+#hosts:
+#  127.0.0.2:
+#    deploy_path: "/web/mini"
+#    labels:
+#      env: dev
+#    branch: develop
+#  127.0.0.3:
+#    deploy_path: "/web/mini"
+#    labels:
+#      env: production
+#    branch: master
+
+tasks:
+  deploy:
+    - deploy:prepare
+    - deploy:vendors
+    - env:publish
+    - artisan:storage:link
+    - artisan:view:cache
+    - artisan:migrate
+    - mini:restart
+    - deploy:publish
+
+after:
+  deploy:failed: deploy:unlock
