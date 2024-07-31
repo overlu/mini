@@ -1,0 +1,16 @@
+#!/bin/bash
+cd /web/mini && echo "\033[33m[step1]\033[0m =========================> \033[0;32mcd server dir succeed\033[0m" &&
+git pull origin master && echo "\033[33m[step2]\033[0m =========================> \033[0;32msource code update succeed\033[0m" &&
+composer install && echo "\033[33m[step3]\033[0m =========================> \033[0;32minstall latest composer packages succeed\033[0m" &&
+#composer install --no-dev && echo "\033[33m[step3]\033[0m =========================> \033[0;32minstall latest composer packages succeed\033[0m" &&
+composer dumpautoload
+
+if [ -n "$1" ]; then
+   if [ "$1" = "-f" -o "$1" =  "--force" ]; then
+       sudo systemctl restart mini.service && echo "\033[33m[step4]\033[0m =========================> \033[01;33mrestart mini service succeed\033[0m"
+   else
+       echo "\033[33m[step4]\033[0m =========================> \033[0;31merror arg\033[0m"
+   fi
+else
+   sudo systemctl reload mini.service && echo "\033[33m[step4]\033[33m =========================> \033[0;32mreload mini service succeed\033[0m"
+fi

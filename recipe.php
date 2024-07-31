@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of mini.
+ * This file is part of Reel.
  * @auth lupeng
  */
 declare(strict_types=1);
@@ -66,32 +66,14 @@ function envPublish(): Closure
 function miniServer(string $action): Closure
 {
     return static function () use ($action) {
-        on(select('env=dev'), function () use ($action) {
-            $output = '';
-            if ($action === 'start') {
-                $output = run('nohup php {{release_or_current_path}}/bin/mini start http > /dev/null 2>&1 &');
-            } elseif ($action === 'stop') {
-                $output = run('nohup php {{release_or_current_path}}/bin/mini stop http --force > /dev/null 2>&1 &');
-            } elseif ($action === 'restart') {
-                $output = run('nohup php {{release_or_current_path}}/bin/mini stop http --force && php {{release_or_current_path}}/bin/mini start http > /dev/null 2>&1 &');
-            } elseif ($action === 'reload') {
-                $output = run('php {{release_or_current_path}}/bin/mini reload http > /dev/null 2>&1 &');
-            }
-            writeln("<info>$output</info>");
-        });
-        on(select('env=production'), function () use ($action) {
-            $output = '';
-            if ($action === 'start') {
-                $output = run('sudo systemctl start mini.service');
-            } elseif ($action === 'stop') {
-                $output = run('sudo systemctl stop mini.service');
-            } elseif ($action === 'restart') {
-                $output = run('sudo systemctl restart mini.service');
-            } elseif ($action === 'reload') {
-                $output = run('sudo systemctl reload mini.service');
-            }
-            writeln("<info>$output</info>");
-        });
+        $commands = [
+            'start' => 'sudo systemctl start reel.service',
+            'stop' => 'sudo systemctl stop reel.service',
+            'restart' => 'sudo systemctl restart reel.service',
+            'reload' => 'sudo systemctl reload reel.service',
+        ];
+        $output = run($commands[$action] ?? '');
+        writeln("<info>$output</info>");
     };
 }
 
