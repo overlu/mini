@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of Reel.
+ * This file is part of mini.
  * @auth lupeng
  */
 declare(strict_types=1);
@@ -67,10 +67,10 @@ function miniServer(string $action): Closure
 {
     return static function () use ($action) {
         $commands = [
-            'start' => 'sudo systemctl start reel.service',
-            'stop' => 'sudo systemctl stop reel.service',
-            'restart' => 'sudo systemctl restart reel.service',
-            'reload' => 'sudo systemctl reload reel.service',
+            'start' => 'sudo systemctl start mini.service',
+            'stop' => 'sudo systemctl stop mini.service',
+            'restart' => 'sudo systemctl restart mini.service',
+            'reload' => 'sudo systemctl reload mini.service',
         ];
         $output = run($commands[$action] ?? '');
         writeln("<info>$output</info>");
