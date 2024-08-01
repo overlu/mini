@@ -12,7 +12,7 @@ use App\Events\MqttServer;
 return [
     'http' => [
         'ip' => '0.0.0.0',
-        'port' => env('HTTP_SERVER_PORT', 9501),
+        'port' => (int)env('HTTP_SERVER_PORT', 9501),
         'sock_type' => SWOOLE_SOCK_TCP,
         'callbacks' => [
         ],
@@ -50,7 +50,7 @@ return [
     ],
     'ws' => [
         'ip' => '0.0.0.0',
-        'port' => env('WS_SERVER_PORT', 9502),
+        'port' => (int)env('WS_SERVER_PORT', 9502),
         'sock_type' => SWOOLE_SOCK_TCP,
         'callbacks' => [
             "open" => [WebSocket::class, 'onOpen'],
@@ -74,7 +74,7 @@ return [
     ],
     'wshttp' => [
         'ip' => '0.0.0.0',
-        'port' => env('WSHTTP_SERVER_PORT', 9503),
+        'port' => (int)env('WSHTTP_SERVER_PORT', 9503),
         'sock_type' => SWOOLE_SOCK_TCP,
         'callbacks' => [
 //            "open" => [WebSocket::class, 'onOpen'],
@@ -102,7 +102,7 @@ return [
     ],
     /*'tcp' => [
         'ip' => '0.0.0.0',
-        'port' => env('TCP_SERVER_PORT', 9504),
+        'port' => (int)env('TCP_SERVER_PORT', 9504),
         'sock_type' => SWOOLE_SOCK_TCP,
         'callbacks' => [
             "receive" => function($server, $data){
@@ -118,7 +118,7 @@ return [
     ],*/
     /*'mqtt' => [
         'ip' => '0.0.0.0',
-        'port' => env('MQTT_SERVER_PORT', 9505),
+        'port' => (int)env('MQTT_SERVER_PORT', 9505),
         'callbacks' => [
         ],
         'receiveCallbacks' => [
