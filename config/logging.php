@@ -36,7 +36,7 @@ return [
     'slower_than' => 0,
 
     /**
-     * register the logger observer
+     * register the logger listener
      */
-//    'listen' => \App\Observers\LoggerObserver::class
+//    'listen' => \App\Listeners\LoggerListener::class
 ];
