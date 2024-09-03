@@ -9,11 +9,12 @@ namespace App\Controllers\Http;
 
 use Exception;
 use Mini\Contracts\Request;
+use Mini\Contracts\View\View;
 use Mini\Facades\Validator;
 
 class IndexController extends Controller
 {
-    public function welcome()
+    public function welcome(): View
     {
         return view('welcome', ['value' => 'Hello Mini.']);
     }
