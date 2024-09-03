@@ -14,11 +14,12 @@ class DemoCommandService extends AbstractCommandService
 {
     /**
      * @param Process|null $process
-     * @return void
+     * @return bool
      */
-    public function handle(?Process $process): void
+    public function handle(?Process $process): bool
     {
         $this->info('this is demo.');
+        return true;
     }
 
     /**
