@@ -158,6 +158,7 @@ return [
         \Mini\Logging\RequestIdMiddleware::class,
 //        \Mini\Session\SessionMiddleware::class,
 //        \App\Middlewares\FromWhichHostMiddleware::class,
+//        \App\Middlewares\WithRequestTimeMiddleware::class
     ],
 
     /**
